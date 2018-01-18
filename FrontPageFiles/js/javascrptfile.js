@@ -1,3 +1,4 @@
+
 $(document).ready(function(){    
 // hidding the about paragraph page //
 $('#theAboutParagraph').hide()

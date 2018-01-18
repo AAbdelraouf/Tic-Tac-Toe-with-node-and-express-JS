@@ -14,261 +14,371 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> --> 
 
 </head>
-<body>
 
-<button id="theAboutButton">About ></button>
-    <p id="theAboutParagraph" align='center'>Since other systems of measurement are still used around the world, such as the United States and the United Kingdom, this site aims to help people convert units of measurement with Metric Converter and Metric Conversion Table and to better understand alternative measurements that they are unfamiliar with. The measurement units are categorized into types (such as Temperature Conversion, Weight Conversion and so on) seen on the right-hand side which then lead to a series of metric conversion calculators.</p>
-        <!-- Header title -->
-    <h1 id="h1Message">Welcome Ahmed to WLTS Measurment converter site </h1>
-  
-    <div id="wholeSection">
-    <!-- Subheader title -->
-    <h3 id="subHeader"> Weight, Length, Temperature, and Speed </h3>
 
-<!-- Engine conversion section -->
-<div id="mainSection">
-    <b> <p id="boardMessage">Temperature converter</p> </b>
- <div id="buttonGrouped">
- <div id="temperatureGroup">
-        <b><label id="leftInputLabel">   Fahrenheit </label></b> <input class="styleplaceholder" type="number" id="leftInput"      placeholder="Enter value" oninput="leftFieldFahrenheit(this.value)"    onchange="leftFieldFahrenheit(this.value)">
-        <b><label id="middleInputLabel"> Celcius </label></b> <input class="styleplaceholder" type="number"    id="centerInput"    placeholder="Enter value" oninput="centerFieldCelcius(this.value)"  onchange="centerFieldCelcius(this.value)">
-        <b><label id="rightInputLabel">  Kelvin </label></b> <input class="styleplaceholder" type="number"     id="rightInput"     placeholder="Enter value" oninput="rightFieldKelvin(this.value)"   onchange="rightFieldKelvin(this.value)">
- </div>
-</div>
-<br><br><br>
-<!-- Bottom bar buttons section -->
-<div class="btn-group" >
-  <button id="temperatureId"><b> Temperature </b></button>
-    <button  id="weightId"><b> Weight  </b> </button>
-    <button id="speedId"><b> Speed </b></button>
-  <button id="lengthId"><b> Length </b></button>
-</div>
-</div>
-</div>
+<style>
 
-<script>
-
-$(document).ready(function(){
+    body{
+        background-color: white;
+        }
     
-    // hidding the about paragraph page //
-    $('#theAboutParagraph').hide()
+    #wholeSection{
+        position: relative;
+        top: 20px;
+        /* width: 960px; */
+        /* height: 500px; */
+        /* border: solid 1px red; */
+        /* margin-left: 200px; */
+        ;}
     
-    // The about page function //
-    function theAboutbuttonAnimation(){
-        var switchTurns = true;    
-        $('#theAboutButton').on('click', function(){
-        if (switchTurns == true){
-        $("#wholeSection").fadeOut();
-        $('#theAboutParagraph').fadeIn();
-        $("#h1Message").html('About the Measurement conversion');
-        $('#theAboutButton').html('< Go Back');
-        $('#theAboutButton').css({backgroundColor: 'wheat'});
-        $('#h1Message').css({color: 'wheat'});
-        switchTurns = false;}
+    /* Game header text */
+    #gameHeadeText{
+        position: relative;
+        left: 40%;
+        margin-top: -30px;
+        width: 400px;
+        right: 10%;
+        color: lightseagreen;
+        font-size: 30pt;
+        background-color: white;}
+    
+    /* Styled the About button */
+    #theAboutButton{
+        position: relative;
+        left: 30px;
+        background-color: lightseagreen;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}
+    
+           
+     #boardmessage{
+        position: relative;
+        top: 10px;
+        width: 350px; 
+        padding-top: 10px;
+        padding-bottom: 10px;     
+        background-color: white;
+        font-size: 25px;
+        color: lightseagreen;
+        border: 1px solid;}
+    
+    /* Game boxed styled */
+    .square{  
+        position: relative;  
+        height: 160px;
+        width: 200px;
+        font-size: 70pt;
+        text-align: center;
+        background-color: white;
+        cursor: pointer;}
+    
+    /* When hovered over a box */
+    .square:hover{
+        background-color: lightgray;}
+    
+    /* Input styling     */
+    input{
+        color: lightseagreen;
+        font-size: 20pt;
+        size: 200px;}
         
-    else if (switchTurns == false){
-        $("#wholeSection").fadeIn();
-        $('#theAboutParagraph').fadeOut();
-        $("#h1Message").html('Welcome to WLTS Measurment converter site');
-        $('#theAboutButton').html('About >');
-        $('#theAboutButton').css({backgroundColor: '#A8F72B'});
-        $('#h1Message').css({color: '#46DF46'});
-        switchTurns = true;}
-        })};
-        theAboutbuttonAnimation();
+    #resetButton{
+         width: 300px; 
+         padding-top: 10px;
+         padding-bottom: 10px;     
+         background-color: white;
+         font-size: 25px;
+         margin-bottom: 100px;
+         color: lightseagreen;
+         border: 2px solid;
+         border-radius: 25px;}
     
-    // switching views function //
-    function switchViewColors(buttonId, backgroundColor, colorCode){
-        return  $(buttonId).css(backgroundColor, colorCode);
-    };
+    #resetButton:hover{
+        background-color: lightseagreen;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}
+        
     
-    // Board Message controll //
-    function changeTexts(textId, boardText){
-       return $(textId).text(boardText);
-    }; 
+        @media only screen and (max-width: 768px) {
     
-    function temperatureButtonFormula(){
-    // setting the colors and texts when hovered over the  weight button //
-        switchViewColors('#temperatureId','background-color', '#A8F72B');  
-        switchViewColors('#mainSection', 'background-color', '#A8F72B');
-        switchViewColors('#speedId', 'background-color', 'lightgray');
-        switchViewColors('#weightId', 'background-color', 'lightgray');
-        switchViewColors('#lengthId','background-color', 'lightgray');  
-        switchViewColors('#h1Message').css('color', '#50c878');
-        switchViewColors('#subHeader').css('color', '#50c878');
-        switchViewColors('#leftInputLabel').css('color', '#50c878');
-        switchViewColors('#middleInputLabel').css('color', '#50c878');
-        switchViewColors('#rightInputLabel').css('color', '#50c878');
-        changeTexts('#boardMessage', 'Temperature converter');
-        changeTexts('#leftInputLabel', 'Fahrenheit');
-        changeTexts('#middleInputLabel', 'Celcius');
-        changeTexts('#rightInputLabel', 'Kelvin');
-        $('#leftInput').val(null);
-        $('#centerInput').val(null);
-        $('#rightInput').val(null);
-        $('#theAboutButton').css({backgroundColor: '#A8F72B'});
     
-        // implementing the math formula for Weight conversion from Fahrenheit to Celsius and Kelvin //
-        $('#leftInput').on('input', function(){
-        fahrenheitInputValue = $('#leftInput').val();
-        $('#centerInput').val((fahrenheitInputValue-32)/1.8);
-        $('#rightInput').val(((fahrenheitInputValue-32)/1.8)+273.15);
-        })
-    // implementing the math formula for Weight conversion from Celsius to Fahrenheit and Kelvin //
-        $('#centerInput').on('input', function(){
-        celsiusInputValue = $('#centerInput').val();
-        $('#leftInput').val((celsiusInputValue*1.8)+32);
-        $('#rightInput').val(celsiusInputValue+273.15);
-        })
-    // implementing the math formula for Weight conversion from Kelvin to Celsius and Fahrenheit //
-        $('#rightInput').on('input', function(){
-        kelvinInputValue = $('#rightInput').val();
-        $('#centerInput').val(kelvinInputValue-273.15);
-        $('#leftInput').val(((kelvinInputValue-273.15)*1.8)+32);
-        })};
-            
-    // When hovered over the Temperature button // 
-        function hoverOverTemperatureButton(){
-        $('#temperatureId').hover(function(){
-        temperatureButtonFormula();
-        });}
+        #gameHeadeText{
+            left: 10%;
+            top: 46px;
+            font-size: 20pt;
+        }
     
-    // calling the two Temperature functions above //
-        temperatureButtonFormula();
-        hoverOverTemperatureButton();
+        #boardmessage{
+            width: 320px;
+            border: 2px solid;
+        }
     
-    // When hovered over the Weight button // 
-        function hoverOverWeightButton(){
-        $('#weightId').hover(function(){
-    // setting the colors and texts when hovered over the  weight button //
-        switchViewColors('#weightId','background-color', '#5F7C8C');  
-        switchViewColors('#mainSection', 'background-color', '#5F7C8C');
-        switchViewColors('#speedId', 'background-color', 'lightgray');
-        switchViewColors('#lengthId', 'background-color', 'lightgray');
-        switchViewColors('#temperatureId', 'background-color', 'lightgray');
-        switchViewColors('#h1Message').css('color', '#5F7C8C');
-        switchViewColors('#subHeader').css('color', '#5F7C8C');
-        switchViewColors('#leftInputLabel').css('color', '#5F7C8C');
-        switchViewColors('#middleInputLabel').css('color', '#5F7C8C');
-        switchViewColors('#rightInputLabel').css('color', '#5F7C8C');
-        changeTexts('#boardMessage', 'Weight converter');
-        changeTexts('#leftInputLabel', 'Pounds');
-        changeTexts('#middleInputLabel', 'Kilograms');
-        changeTexts('#rightInputLabel', 'Ounces');
-        $('#leftInput').val(null);
-        $('#centerInput').val(null);
-        $('#rightInput').val(null);
-        $('#theAboutButton').css({backgroundColor: '#5F7C8C'});
+        #wholeSection{
+            position: relative;
+            width: 90%;
+            left: 5%;
+            top: 60px;
+            height: 100px;}
     
-    // implementing the math formula for Weight conversion from Pounds to Kilograms and Ounces //
-        $('#leftInput').on('input', function(){
-        poundsInputValue = $('#leftInput').val();
-        $('#centerInput').val(poundsInputValue/2.2046);
-        $('#rightInput').val(poundsInputValue*16);})
-    // implementing the math formula formula for Weight from Kilograms to Pounds and Ounces //
-        $('#centerInput').on('input', function(){
-        kilogramsInputValue = $('#centerInput').val();
-        $('#leftInput').val(kilogramsInputValue*2.2046)
-        $('#rightInput').val(kilogramsInputValue*35.274)
-                        })
-    // implementing the math formula formula for Weight from Ounces to Pounds and Kilograms //
-        $('#rightInput').on('input', function(){
-        ouncesInputValue = $('#rightInput').val();
-        $('#leftInput').val(ouncesInputValue*0.0625);
-        $('#centerInput').val(ouncesInputValue/35.274);
-        })})};
-        hoverOverWeightButton();
+        .square{
+            height: 100px;
+            width: 100px;}
+    
+            /* #theAboutParagraph{
+                display: none;
+            } */
+    
+        #aboutTheParagraph{
+            position: relative;
+            width: 30%;
+            font-size: 14pt;
+            left: -32%;
+            bottom: 75%;
+            padding: 5%;
+            color: white;
+            background-color: lightseagreen
+            }
+            }
+    
+            </style>
+    
+        </head>
+        <body>
+                <!-- About the game button -->
+    
+                <button id="theAboutButton">About the game >></button>
+                <p id="theAboutParagraph"></p>
+                <!-- Header section -->
+                    <h2 id="gameHeadeText"> Tic Tac Toe game </h2>   
+    
+                    <div id="wholeSection">
+    
+                        <center>
+                    <div id="boardmessage">x starts </div> <br>
+                <div id="table-wrapper">
+                    <!-- Table for game structure -->
+                    <table border="1">
+                    <tr >
+                        <td id="square1" class="square" ></td>
+                        <td id="square2" class="square" ></td>
+                        <td id="square3" class="square" ></td>
+                    </tr>
+    
+                    <tr>
+                        <td id="square4" class="square" ></td>
+                        <td id="square5" class="square" ></td>
+                        <td id="square6" class="square" ></td>
+                    </tr>
+                    
+                    <tr >
+                        <td id="square7" class="square" ></td>
+                        <td id="square8" class="square" ></td>
+                        <td id="square9" class="square" ></td>
+                    </tr>
+                    </table>
+                    <br><br>
+                    <!-- Reset button to reset the game if needed  -->
+                    <button id="resetButton">Start over</button>                        
+                </div>
+            </center>
+        </div>
+    
+    
+    
+    <script>
+    
+    
+    
+    $(document).ready(function()
+    {       
+                // About the game section //
+                var aboutTheGameButtonSwitch = 0;
+                $('#theAboutButton').on('click', function(){
+                    if (aboutTheGameButtonSwitch == 0){
+                        // switching from game section to about the game section //
+                        $('#wholeSection').fadeOut();
+                        
+                        $("#theAboutParagraph" ).css({ fontSize: "25px", color: "whitesmoke", position: 'absolute', backgroundColor: 'lightseagreen'});
+                        $("#theAboutParagraph" ).css({ padding: "100px"});
+                        $('#theAboutParagraph').css({'height': '220px', 'width': '800px', 'top': '250px', 'left': '200px'});
+                        $('#theAboutButton').text("<< Start playing");
+                        $('#gameHeadeText').html("About the game");
+                        $('#theAboutParagraph').append(" <div id='aboutTheParagraph'> You probably already know how to play Tic-Tac-Toe. It's a really simple game, right? That's what most people think. But if you really wrap your brain around it, you'll discover that Tic-Tac-Toe isn't quite as simple as you think! Tic-Tac -Toe (along with a lot of other games) involves looking ahead and trying to figure out what the person playing against you might do next. </div>");
+                        aboutTheGameButtonSwitch = 1;  
+                    }
+                    // Switch back to display the game section //
+                    else if (aboutTheGameButtonSwitch == 1){   
+                        $('#wholeSection').show()
+                        location.reload(true);
+                        $('#theAboutParagraph').css('display', 'none')
+                        $('#theAboutButton').text("About the game >")
+                        $('#theAboutParagraph').text(null)
+                        aboutTheGameButtonSwitch = 0;
+                    }})
                 
-    // When hovered over the Speed button //
-        function hoverOverSpeedButton(){
-        $('#speedId').hover(function(){
-        switchViewColors('#speedId','background-color', '#2C89DC');  
-        switchViewColors('#mainSection', 'background-color', '#2C89DC');
-        switchViewColors('#temperatureId', 'background-color', 'lightgray');
-        switchViewColors('#weightId', 'background-color', 'lightgray');
-        switchViewColors('#lengthId','background-color', 'lightgray');  
-        switchViewColors('#h1Message').css('color', '#2C89DC');
-        switchViewColors('#subHeader').css('color', '#2C89DC');
-        switchViewColors('#leftInputLabel').css('color', '#2C89DC');
-        switchViewColors('#middleInputLabel').css('color', '#2C89DC');
-        switchViewColors('#rightInputLabel').css('color', '#2C89DC');
-        changeTexts('#boardMessage', 'Speed converter');
-        changeTexts('#leftInputLabel', 'MPH');
-        changeTexts('#middleInputLabel', 'KPH');
-        changeTexts('#rightInputLabel', 'Knots');
-        $('#leftInput').val(null);
-        $('#centerInput').val(null);
-        $('#rightInput').val(null);
-        $('#theAboutButton').css({backgroundColor: '#2C89DC'});
+                // Board game message on top of the table //
+                function gameMessage(parameterMsg)
+                {
+                    $("#boardmessage").text(parameterMsg)
+                };
     
-    // implementing the math formula for Speed conversion from MPH to KPH and Knots //
-        $('#leftInput').on('input', function(){
-        mphInputValue = $('#leftInput').val();
-        $('#centerInput').val(mphInputValue*1.609344);
-        $('#rightInput').val(mphInputValue/1.150779)
-        })
+                // two variables to determine turns//
+                var player = 1;
+                var turnChar = "x"            
     
-    // implementing the math formula for Speed conversion from KPH to MPH and Knots //
-        $('#centerInput').on('input', function(){
-        kphInputValue = $('#centerInput').val();
-        $('#leftInput').val(kphInputValue/1.609344);
-        $('#rightInput').val(kphInputValue/1.852)
-        })
+                // on click event for the boxes //
+                $('.square').on('click', function(){
+                var squareSelected = $(this);
+                  
+                // if x wins  //    
+                if (lookForWinner("x") ){ 
+                    gameMessage("x already won, start over")    
+                }
+                // if o wins  //
+                else if (lookForWinner("o")){
+                    gameMessage("o already won, start over")
+                }
+                // if box is empty //
+                else if (squareSelected.text() !== "" )
+                {
+                    $('.square').css('border-color', null);
+                    $(this).css({"border-color": "lightcoral", "border-width":"2px", "border-style":"solid"});
+                    $('#boardmessage').css('color', 'lightcoral');
+                    gameMessage("Box occupied");   
+                }
+     
+                // implementing letter 'x' in empty boxes //
+                else if (player === 1){
+                            squareSelected.text(turnChar);
+                            $('#boardmessage').css('color', 'lightblue');
+                            $('.square').css('border-color', null)
+                            gameMessage("now is o's turn");
+                            squareSelected.css("background-color", 'lightgreen');
+                            squareSelected.css("color", 'white');
     
-    // implementing the math formula for Speed conversion from Knots to KPH and MPH //
-        $('#rightInput').on('input', function(){
-        knotsInputValue = $('#rightInput').val();
-        $('#centerInput').val(knotsInputValue*1.852);
-        $('#leftInput').val(knotsInputValue*1.150779)
-        })
-        })};
-        hoverOverSpeedButton();
+                            if (lookForWinner("x"))
+                            {
+                                turnChar = null;
+                                $('#resetButton').css('background-color', 'lightseagreen');
+                                $('#resetButton').css('color', 'white');
+                                gameMessage("x has won");
+                                $('#boardmessage').css('color', 'white');
+                                $('#boardmessage').css('background-color', 'lightgreen');
+                            }
+                            else{
+                                player =2;
+                                turnChar = "o"
+                            }}
+                        
+                   // switching from letter  "x" to  letter "o" //
+                    else if (player === 2){
+                        squareSelected.text(turnChar);
+                        $('#boardmessage').css('color', 'lightgreen');
+                        $('.square').css('border-color', '');
+                        gameMessage("now is x's turn");
+                        squareSelected.css("background-color", 'lightblue');
+                        squareSelected.css("color", 'white');
+                        
+                        if (lookForWinner("o"))
+                        {
+                            turnChar = null;
+                            $('#resetButton').css('background-color', 'lightseagreen');
+                            $('#resetButton').css('color', 'white');
+                            $('#boardmessage').css('color', 'white');
+                            $('#boardmessage').css('background-color', 'lightblue');
+                            gameMessage("o has won");
+                        }
+                        else{
+                            player =1;
+                            turnChar = "x"
+                        }}
+                    // now back to "x" //
+                    else {
+                        squareSelected.text("x");
+                        gameMessage("now is o's turn")
+                        squareSelected.css("background-color", 'lightgreen');}
+                   drawGameScenerio();
+                
+                  // Draw game functionality //
+                  function drawGameScenerio(){
+                     for (drawLoop = 0; drawLoop <= $('.square').length; drawLoop++)
+                         if (
+                             $('#square1').text() !== "" &&
+                             $('#square2').text() !== "" &&
+                             $('#square3').text() !== "" &&
+                             $('#square4').text() !== "" &&
+                             $('#square5').text() !== "" &&
+                             $('#square6').text() !== "" &&
+                             $('#square7').text() !== "" &&
+                             $('#square8').text() !== "" &&
+                             $('#square9').text() !== "" 
+                             )
+                             {
+                                 if (lookForWinner("x"))
+                                 {
+                                    gameMessage("x has won");
+                                    }
+                                 else if (lookForWinner("o"))
+                                 {
+                                    gameMessage("o has won");
+                                 }
+                                 else {
+                                    $('#boardmessage').css('color', 'lightcoral');
+                                    gameMessage("Draw game");
+                                    $('#boardmessage').css('background-color', 'lightcoral');
+                                    $('#boardmessage').css('color', 'white');
+                                    $('#resetButton').css('background-color','lightcoral'); 
+                                    $('#resetButton').css('color','white');
+                                    $('.square').css('border-color', '');
+                                 }};}
     
-    // When hovered over the Length button //             
-        function hoverOverLengthButton(){
-        $('#lengthId').hover(function(){
-        switchViewColors('#lengthId','background-color', '#E39B7D');  
-        switchViewColors('#mainSection', 'background-color', '#E39B7D');
-        switchViewColors('#speedId', 'background-color', 'lightgray');
-        switchViewColors('#temperatureId', 'background-color', 'lightgray');
-        switchViewColors('#h1Message').css('color', '#E39B7D');
-        switchViewColors('#subHeader').css('color', '#E39B7D');
-        switchViewColors('#leftInputLabel').css('color', '#E39B7D');
-        switchViewColors('#middleInputLabel').css('color', '#E39B7D');
-        switchViewColors('#rightInputLabel').css('color', '#E39B7D');
-        changeTexts('#boardMessage', 'Length converter');
-        changeTexts('#leftInputLabel', 'Feet');
-        changeTexts('#middleInputLabel', 'Meters');
-        changeTexts('#rightInputLabel', 'Inches');
-        $('#leftInput').val(null);
-        $('#centerInput').val(null);
-        $('#rightInput').val(null);
-        $('#theAboutButton').css({backgroundColor: '#E39B7D'});
+                 // Reset button functionality
+                 $("#resetButton").click(function(){
+                    for (resetLoop = 0; resetLoop <= $('.square').length; resetLoop++)
+                    {
+                    $(".square").text(null);
+                    $('.square').css("background-color", '');
+                    location.reload(true);
+                    }
+                });}) 
+               
+                // checking for winner function //
+                 function lookForWinner (letter)
+                 {
+                 for (startLoop = 0; startLoop <= $(".square").length; startLoop++)
+                 {
+                     if (
+                         $("#square4").text() == (letter) &&  $("#square5").text() == (letter) &&  $("#square6").text() == (letter) ||
+                         $("#square7").text() == (letter) &&  $("#square8").text() == (letter) &&  $("#square9").text() == (letter) ||
+                         $("#square1").text() == (letter) &&  $("#square4").text() == (letter) &&  $("#square7").text() == (letter) ||
+                         $("#square2").text() == (letter) &&  $("#square5").text() == (letter) &&  $("#square8").text() == (letter) ||
+                         $("#square3").text() == (letter) &&  $("#square6").text() == (letter) &&  $("#square9").text() == (letter) ||
+                         $("#square1").text() == (letter) &&  $("#square2").text() == (letter) &&  $("#square3").text() == (letter) ||
+                         $("#square1").text() == (letter) &&  $("#square5").text() == (letter) &&  $("#square9").text() == (letter) ||
+                         $("#square3").text() == (letter) &&  $("#square5").text() == (letter) &&  $("#square7").text() == (letter) 
+                          )
+                         {
+                             return true;
+                         }
+                     else 
+                     {
+                         return false;
+                     }
+                     }};
+            });
     
-    // implementing the math formula for lenght conversion from Feet to Meters and Inches //
-        $('#leftInput').on('input', function(){
-        feetInputValue = $('#leftInput').val();
-        $('#centerInput').val(feetInputValue/3.2808);
-        $('#rightInput').val(feetInputValue*12)
-        })
     
-    // implementing the math formula for lenght conversion from Meters to Feet and Inches //
-        $('#centerInput').on('input', function(){
-        meterInputValue = $('#centerInput').val();
-        $('#leftInput').val(meterInputValue*3.2808);
-        $('#rightInput').val(meterInputValue*39.370)
-        })
     
-    // implementing the math formula for lenght conversion from Inches to Meter and Feet //
-        $('#rightInput').on('input', function(){
-        inchesInputValue = $('#rightInput').val();
-        $('#centerInput').val(inchesInputValue/39.370);
-        $('#leftInput').val(inchesInputValue*0.083333)
-        })})};
-        hoverOverLengthButton();        
-    });
+    </script>
     
-</script>
-
-</body>
+    
+    </body>
+    
 </html>
