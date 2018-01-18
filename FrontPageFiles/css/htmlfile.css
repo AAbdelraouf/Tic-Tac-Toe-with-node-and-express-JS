@@ -1,0 +1,135 @@
+body{
+    background-color: whitesmoke;
+}
+
+#theAboutButton{
+    width: 200px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    background-color: #A8F72B;
+    border: none;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
+    border-radius: 30px;
+}
+
+#theAboutParagraph{
+    position: absolute;
+    left: 300px;
+    top: 150px;
+    height: 40%;
+    width: 40%;
+    font-size: 20px;
+    padding-top: 150px;
+    padding-right: 100px;
+    padding-left: 100px;
+    background-color: wheat;
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+
+/* Created wholeSection div to avoid resizing when resizing web browsers */
+#wholeSection
+{
+   width: 1600px;}
+
+/* Styling the main header    */
+#h1Message{
+    position: relative;
+    color: green;
+    margin-left: 410px;
+    /* margin-top: 30px; */
+}
+/* Styling the sub-header    */
+#subHeader{
+    color: #46DF46;
+    margin-left: 550px;}
+
+#boardMessage{
+    font-size: 20pt;
+    color: white;
+    margin-left: 200px;
+    padding-top: 110px;}
+
+/* Styling the main section      */
+#mainSection{
+    position: relative;
+    margin-top: 110px;
+    height: 550px;
+    width: 70%;
+    background-color: #A8F72B;
+    left: 120px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}
+
+#buttonGrouped{
+    position: relative;
+    padding-top: 100px;
+    padding-left: 100px;}
+
+/* Modifying the placeholder input      */
+.styleplaceholder{
+    height: 40px;
+    width: 200px;
+    border: 1px solid white;}
+
+
+.styleplaceholder,
+.styleplaceholder::-webkit-input-placeholder{
+    font-size: 15px;
+    line-height: 2;
+    text-align: center;}
+
+/* Styling the labels      */
+label{
+    text-align: center;
+    height: 42px;
+    /* display: inline-block; */
+    float: left;
+    width: 100px;
+    text-align: center;
+    border: 1px solid whitesmoke;
+    background-color: #F1EBEB;
+    border-left: 4px solid green;
+    text-align: center;  
+    line-height: 45px;   
+    color: green;}
+
+/* centering the input fieds */
+input{
+  float: left;}
+
+/* Styling the Temperature / Weight / Speed / Length buttons  */
+.btn-group button{
+    width: 25%;
+    margin-top: 192px;
+    height: 40px;
+    float: left;
+    border: 0px solid red;
+    cursor: pointer;
+    font-size: 13pt;
+    color: white;
+    background-color: lightgray;}
+
+#temperatureId{
+    background-color: #A8F72B;}
+
+#temperatureId:hover{
+    background-color: #A8F72B;}
+
+    @media only screen and (max-width: 768px){
+    #theAboutButton{
+        width: 25%;
+        height: 8%;
+        font-size: 10pt;}
+
+    #wholeSection{
+        width: 140%;
+        position: relative;
+        bottom: 300px;
+        right: 120px;
+    }
+    }

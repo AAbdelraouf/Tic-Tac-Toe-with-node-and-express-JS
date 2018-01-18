@@ -1,0 +1,46 @@
+
+#theAboutParagraph{
+    position: absolute;
+    left: 300px;
+    top: 150px;
+    height: 40%;
+    width: 40%;
+    font-size: 20px;
+    padding-top: 150px;
+    padding-right: 100px;
+    padding-left: 100px;
+    background-color: wheat;
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+
+#theAboutButton{
+    width: 200px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    background-color: #A8F72B;
+    border: none;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
+    border-radius: 30px;
+}
+
+@media only screen and (max-width: 768px){
+
+    #theAboutButton{
+        width: 25%;
+        height: 8%;
+        font-size: 10pt;}
+
+    #wholeSection{
+        width: 140%;
+        position: relative;
+        bottom: 300px;
+        right: 120px;
+
+    }
+}
