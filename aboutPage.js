@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
 // reading files on this route
 router.get('/', function(req, res){
     res.sendFile(__dirname + '/aboutPage/aboutPageHTML.html')
