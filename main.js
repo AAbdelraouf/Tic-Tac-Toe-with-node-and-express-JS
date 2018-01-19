@@ -1,10 +1,9 @@
 var express = require('express');
 var app = express();
-
 var port = process.env.PORT || 3000
 
-// app.use(express.static('public'));
-// app.use(express.static('aboutPage'));
+app.use(express.static('frontPageFiles'));
+app.use(express.static('aboutPage'));
 
 //calling the about us route
 var aboutRoute = require('./aboutPage.js');
