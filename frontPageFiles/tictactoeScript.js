@@ -3,27 +3,8 @@ $(document).ready(function()
             // About the game section //
             var aboutTheGameButtonSwitch = 0;
             $('#theAboutButton').on('click', function(){
-                if (aboutTheGameButtonSwitch == 0){
-                    // switching from game section to about the game section //
-                    $('#wholeSection').fadeOut();
-                    
-                    $("#theAboutParagraph" ).css({ fontSize: "25px", color: "whitesmoke", position: 'absolute', backgroundColor: 'lightseagreen'});
-                    $("#theAboutParagraph" ).css({ padding: "100px"});
-                    $('#theAboutParagraph').css({'height': '220px', 'width': '800px', 'top': '250px', 'left': '200px'});
-                    $('#theAboutButton').text("<< Start playing");
-                    $('#gameHeadeText').html("About the game");
-                    $('#theAboutParagraph').append(" <div id='aboutTheParagraph'> You probably already know how to play Tic-Tac-Toe. It's a really simple game, right? That's what most people think. But if you really wrap your brain around it, you'll discover that Tic-Tac-Toe isn't quite as simple as you think! Tic-Tac -Toe (along with a lot of other games) involves looking ahead and trying to figure out what the person playing against you might do next. </div>");
-                    aboutTheGameButtonSwitch = 1;  
-                }
-                // Switch back to display the game section //
-                else if (aboutTheGameButtonSwitch == 1){   
-                    $('#wholeSection').show()
-                    location.reload(true);
-                    $('#theAboutParagraph').css('display', 'none')
-                    $('#theAboutButton').text("About the game >")
-                    $('#theAboutParagraph').text(null)
-                    aboutTheGameButtonSwitch = 0;
-                }})
+                location.href = 'https://tictactogame.herokuapp.com/about'
+               })
             
             // Board game message on top of the table //
             function gameMessage(parameterMsg)
