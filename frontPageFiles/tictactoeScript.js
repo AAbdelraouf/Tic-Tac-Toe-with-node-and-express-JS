@@ -1,7 +1,6 @@
 $(document).ready(function()
 {       
-            // About the game section //
-            var aboutTheGameButtonSwitch = 0;
+            // About the game button //
             $('#theAboutButton').on('click', function(){
                 location.href = 'https://tictactogame.herokuapp.com/about'
                })
