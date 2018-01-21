@@ -1,2 +1,5 @@
 // No coded need at this point yet //
-// alert('This files is linked to the HTML file')
+
+$('#theAboutButton').on('click', function(){
+    location.href = 'https://tictactogame.herokuapp.com/'
+   })
