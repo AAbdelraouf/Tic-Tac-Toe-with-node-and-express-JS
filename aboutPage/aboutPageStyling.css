@@ -31,6 +31,7 @@
 /* Styled the About button */
 #theAboutButton{
     position: relative;
+    width: 30%;
     top:38px;
     left: 30px;
     background-color: lightseagreen;
