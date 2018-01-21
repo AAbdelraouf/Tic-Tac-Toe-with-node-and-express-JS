@@ -1,6 +1,7 @@
-// No coded need at this point yet //
-
-$('#theAboutButton').on('click', function(){
-    console.log('Welcome!')
-    location.href = 'https://tictactogame.herokuapp.com/'
-   })
+$(document).ready(function()
+{       
+    // About the game button //
+    $('#theAboutButton').on('click', function(){
+        location.href = 'https://tictactogame.herokuapp.com/'
+        })
+    });
